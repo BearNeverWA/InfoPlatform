@@ -1,0 +1,20 @@
+1.WelcomeActivity			//欢迎页面
+2.LoginActivity				//登录页面
+3.MainActivity+EventsFragment		//主页面+活动页面
+4.CommunityFragment			//社团页面
+5.PersonsFragment			//个人页面
+6.ClubDetailActivity			//社团详情页面
+7.EventsDetailActivity			//活动详情页面
+8.MessageActivity			//消息页面
+9.MineClubActivity			//我的社团页面
+10.MineEnrollActivity			//申请加入社团页面
+11.MineFollowActivity			//我的关注页面
+12.ModifyPersonalDataActivity		//修改个人信息页面
+
+------------------------------------华丽丽的分割线------------------------------------------------
+
+13.ModifyClubDataActivity		//修改社团信息页面
+14.MineClubMembersActivity		//我的社团成员页面
+15.IssueEventsActivity			//活动发布页面
+16.CheckEventsActivity			//活动审核页面
+17.ModifyEventsActivity			//修改活动页面（发布后）
