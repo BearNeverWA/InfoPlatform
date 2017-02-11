@@ -10,8 +10,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.makethings.infoplatform.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_test9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="9Test" />
+
+    <Button
+        android:id="@+id/btn_test13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13test" />
+
+    <Button
+        android:id="@+id/btn_test14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="14test" />
+
 </RelativeLayout>
