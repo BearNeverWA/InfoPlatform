@@ -1,28 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.makethings.infoplatform.MainActivity">
 
-    <Button
-        android:id="@+id/btn_test9"
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_event"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="活动"
+            android:textColor="@color/colorPrimary" />
+
+        <RadioButton
+            android:id="@+id/rb_club"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="社团"
+            android:textColor="@color/colorPrimary" />
+
+        <RadioButton
+            android:id="@+id/rb_personal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="我"
+            android:textColor="@color/colorPrimary" />
+
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="9Test" />
+        android:layout_above="@+id/radio_group" />
 
-    <Button
-        android:id="@+id/btn_test13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="13test" />
-
-    <Button
-        android:id="@+id/btn_test14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="14test" />
-
-</LinearLayout>
+</RelativeLayout>

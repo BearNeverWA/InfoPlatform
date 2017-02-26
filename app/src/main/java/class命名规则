@@ -14,7 +14,7 @@
 ------------------------------------华丽丽的分割线------------------------------------------------
 
 13.ModifyClubDataActivity		//修改社团信息页面
-14.MineClubMembersActivity		//我的社团成员页面
+14.MineClubMembersActivity		//我的社团成员页面0
 15.IssueEventsActivity			//活动发布页面
 16.CheckEventsActivity			//活动审核页面
 17.ModifyEventsActivity			//修改活动页面（发布后）
