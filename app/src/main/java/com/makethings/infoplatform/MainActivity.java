@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -15,7 +14,6 @@ public class MainActivity extends FragmentActivity {
     RadioGroup radioGroup;
     RadioButton rbEvents, rbClub, rbPersonal;
     ArrayList<Fragment> fragmentArrayList;
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
