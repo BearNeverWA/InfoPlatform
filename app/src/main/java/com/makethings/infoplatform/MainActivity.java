@@ -27,7 +27,6 @@ public class MainActivity extends FragmentActivity {
 
     private void initView() {
         pager = (ViewPager) findViewById(R.id.view_pager);
-        CommonUtils.controlViewPagerSpeed(this, pager, 1200);
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         rbEvents = (RadioButton) findViewById(R.id.rb_event);
         rbClub = (RadioButton) findViewById(R.id.rb_club);
