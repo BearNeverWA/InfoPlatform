@@ -1,39 +1,89 @@
 package com.makethings.infoplatform;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-public class MainActivity extends AppCompatActivity {
-    Button button9,button13,button14;
+import java.util.ArrayList;
+
+public class MainActivity extends FragmentActivity {
+    ViewPager pager;
+    RadioGroup radioGroup;
+    RadioButton rbEvents, rbClub, rbPersonal;
+    ArrayList<Fragment> fragmentArrayList;
+    private static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button9= (Button) findViewById(R.id.btn_test9);
-        button9.setOnClickListener(new View.OnClickListener() {
+        initView();
+        initViewPager();
+    }
+
+    private void initView() {
+        pager = (ViewPager) findViewById(R.id.view_pager);
+        CommonUtils.controlViewPagerSpeed(this, pager, 1200);
+        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        rbEvents = (RadioButton) findViewById(R.id.rb_event);
+        rbClub = (RadioButton) findViewById(R.id.rb_club);
+        rbPersonal = (RadioButton) findViewById(R.id.rb_personal);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,MineClubActivity.class);
-                startActivity(intent);
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_event:
+                        pager.setCurrentItem(0, false);
+                        break;
+                    case R.id.rb_club:
+                        pager.setCurrentItem(1, false);
+                        break;
+                    case R.id.rb_personal:
+                        pager.setCurrentItem(2, false);
+                        break;
+                }
             }
         });
-        button13= (Button) findViewById(R.id.btn_test13);
-        button13.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private void initViewPager() {
+        FragmentEvents events = new FragmentEvents();
+        FragmentClub club = new FragmentClub();
+        FragmentPersonal personal = new FragmentPersonal();
+        fragmentArrayList = new ArrayList<Fragment>();
+        fragmentArrayList.add(events);
+        fragmentArrayList.add(club);
+        fragmentArrayList.add(personal);
+        pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), fragmentArrayList));
+        pager.setCurrentItem(0);
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,ModifyClubDataActivity.class);
-                startActivity(intent);
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
             }
-        });
-        button14= (Button) findViewById(R.id.btn_test14);
-        button14.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,MineClubMembersActivity.class);
-                startActivity(intent);
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        radioGroup.check(R.id.rb_event);
+                        break;
+                    case 1:
+                        radioGroup.check(R.id.rb_club);
+                        break;
+                    case 2:
+                        radioGroup.check(R.id.rb_personal);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
     }

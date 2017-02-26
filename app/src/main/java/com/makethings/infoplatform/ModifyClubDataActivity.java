@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class ModifyClubDataActivity extends AppCompatActivity {
     private EditText etClubIntroduction;
     private List<String> spinner_list;
     private ArrayAdapter<String> adapter;
+    private TextView tvClubName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class ModifyClubDataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_modify_club_data);
         etClubIntroduction = (EditText) findViewById(R.id.et_club_introduction);
         spinner= (Spinner) findViewById(R.id.spinner_club_type);
+        tvClubName= (TextView) findViewById(R.id.tv_mine_club_name);
 
         spinner_list=new ArrayList<String>();
         spinner_list.add("文艺");
