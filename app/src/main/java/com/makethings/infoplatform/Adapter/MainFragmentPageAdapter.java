@@ -1,4 +1,4 @@
-package com.makethings.infoplatform;
+package com.makethings.infoplatform.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
