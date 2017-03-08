@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.makethings.infoplatform.MineClubMembersActivity">
+    tools:context="com.makethings.infoplatform.Activity.MineClubMembersActivity">
 
     <ListView
         android:id="@+id/lv_mine_club_member"

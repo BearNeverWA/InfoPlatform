@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.makethings.infoplatform.MainActivity">
+    tools:context="com.makethings.infoplatform.Activity.MainActivity">
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -23,8 +23,7 @@
             android:button="@null"
             android:checked="true"
             android:gravity="center"
-            android:text="活动"
-            android:textColor="@color/colorPrimary" />
+            android:text="活动" />
 
         <RadioButton
             android:id="@+id/rb_club"
@@ -34,8 +33,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="社团"
-            android:textColor="@color/colorPrimary" />
+            android:text="社团" />
 
         <RadioButton
             android:id="@+id/rb_personal"
@@ -45,8 +43,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="我"
-            android:textColor="@color/colorPrimary" />
+            android:text="我" />
 
     </RadioGroup>
 
