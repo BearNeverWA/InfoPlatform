@@ -1,11 +1,18 @@
-package com.makethings.infoplatform;
+package com.makethings.infoplatform.Activity;
 
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.makethings.infoplatform.Adapter.MainFragmentPageAdapter;
+import com.makethings.infoplatform.Fragment.FragmentClub;
+import com.makethings.infoplatform.Fragment.FragmentEvents;
+import com.makethings.infoplatform.Fragment.FragmentPersonal;
+import com.makethings.infoplatform.R;
 
 import java.util.ArrayList;
 
@@ -35,12 +42,21 @@ public class MainActivity extends FragmentActivity {
                 switch (checkedId) {
                     case R.id.rb_event:
                         pager.setCurrentItem(0, false);
+                        rbEvents.setTextColor(Color.BLUE);
+                        rbClub.setTextColor(Color.BLACK);
+                        rbPersonal.setTextColor(Color.BLACK);
                         break;
                     case R.id.rb_club:
                         pager.setCurrentItem(1, false);
+                        rbClub.setTextColor(Color.BLUE);
+                        rbEvents.setTextColor(Color.BLACK);
+                        rbPersonal.setTextColor(Color.BLACK);
                         break;
                     case R.id.rb_personal:
                         pager.setCurrentItem(2, false);
+                        rbPersonal.setTextColor(Color.BLUE);
+                        rbClub.setTextColor(Color.BLACK);
+                        rbEvents.setTextColor(Color.BLACK);
                         break;
                 }
             }
@@ -68,12 +84,21 @@ public class MainActivity extends FragmentActivity {
                 switch (position) {
                     case 0:
                         radioGroup.check(R.id.rb_event);
+                        rbEvents.setTextColor(Color.BLUE);
+                        rbClub.setTextColor(Color.BLACK);
+                        rbPersonal.setTextColor(Color.BLACK);
                         break;
                     case 1:
                         radioGroup.check(R.id.rb_club);
+                        rbClub.setTextColor(Color.BLUE);
+                        rbEvents.setTextColor(Color.BLACK);
+                        rbPersonal.setTextColor(Color.BLACK);
                         break;
                     case 2:
                         radioGroup.check(R.id.rb_personal);
+                        rbPersonal.setTextColor(Color.BLUE);
+                        rbClub.setTextColor(Color.BLACK);
+                        rbEvents.setTextColor(Color.BLACK);
                         break;
                 }
             }

@@ -1,10 +1,12 @@
-package com.makethings.infoplatform;
+package com.makethings.infoplatform.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
+
+import com.makethings.infoplatform.R;
 
 public class MineClubActivity extends AppCompatActivity {
 

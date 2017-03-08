@@ -1,8 +1,10 @@
-package com.makethings.infoplatform;
+package com.makethings.infoplatform.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.makethings.infoplatform.R;
 
 public class MineClubMembersActivity extends AppCompatActivity {
     ListView listMineClubMember;
