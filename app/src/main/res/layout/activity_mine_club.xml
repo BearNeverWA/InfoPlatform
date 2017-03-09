@@ -7,6 +7,11 @@
     android:orientation="vertical"
     tools:context="com.makethings.infoplatform.Activity.MineClubActivity">
 
+    <Button
+        android:id="@+id/btn_club_manage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="管理员测试入口" />
 
     <TabHost
         android:id="@+id/tabhost"
