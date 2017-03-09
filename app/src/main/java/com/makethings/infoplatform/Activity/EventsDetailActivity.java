@@ -35,7 +35,7 @@ public class EventsDetailActivity extends AppCompatActivity {
     private ImageView ivEventsPic;
     private ListView lvEventsDetailInfo;
     private ListView lvEventsIssuedClub;
-    private Button btEnrollEvents;
+    private Button btEnrollEvents,btnManageEvent;
 
     private String eventsName;
     private int eventsIssuedClubCount;
@@ -78,9 +78,9 @@ public class EventsDetailActivity extends AppCompatActivity {
         lvEventsDetailInfo = (ListView) findViewById(R.id.lvEventsDetailInfo);
         lvEventsIssuedClub = (ListView) findViewById(R.id.lvEventsIssuedClub);
         btEnrollEvents = (Button) findViewById(R.id.btEnrollEvents);
+        btnManageEvent= (Button) findViewById(R.id.btn_manage_event);
 
         tvEventsName.setText(eventsName);
-
 
         List<Map<String, Object>> listEventsDetailInfo = GetEventsDetailInfo();
         lvEventsDetailInfo.setAdapter(new EventsDetailAdapter(this, listEventsDetailInfo, type));
@@ -106,6 +106,14 @@ public class EventsDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnManageEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
     @Override

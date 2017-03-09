@@ -79,28 +79,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="修改测试" />
+            android:text="修改社团信息" />
 
         <Button
             android:id="@+id/btn_mine_club_member"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="成员测试" />
+            android:text="查看社团成员" />
 
         <Button
             android:id="@+id/btn_issue_event"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="发布测试" />
-
-        <Button
-            android:id="@+id/btn_check_event"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="管理测试" />
+            android:text="发布新活动" />
 
     </LinearLayout>
 

@@ -4,35 +4,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="消息测试" />
 
     <Button
         android:id="@+id/btn_mine_club"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="我的社团测试" />
+        android:text="我的社团" />
 
     <Button
         android:id="@+id/btn_mine_enroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="我的报名测试" />
+        android:text="我的报名" />
 
     <Button
         android:id="@+id/btn_mine_follow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="我的关注测试" />
+        android:text="我的关注" />
 
     <Button
         android:id="@+id/btn_modify_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="修改个人信息测试" />
+        android:text="修改个人信息" />
 
     <TextView
         android:layout_width="match_parent"

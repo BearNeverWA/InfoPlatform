@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.makethings.infoplatform.Activity.MessageActivity;
 import com.makethings.infoplatform.Activity.MineClubActivity;
 import com.makethings.infoplatform.Activity.MineEnrollActivity;
 import com.makethings.infoplatform.Activity.MineFollowActivity;
@@ -32,8 +31,7 @@ public class FragmentPersonal extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Button btnMessage = (Button) getActivity().findViewById(R.id.btn_message);
-        btnMessage.setOnClickListener(this);
+
         Button btnMineClub = (Button) getActivity().findViewById(R.id.btn_mine_club);
         btnMineClub.setOnClickListener(this);
         Button btnMineEnroll = (Button) getActivity().findViewById(R.id.btn_mine_enroll);
@@ -48,10 +46,7 @@ public class FragmentPersonal extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()){
-            case R.id.btn_message:
-                intent=new Intent(getActivity(),MessageActivity.class);
-                startActivity(intent);
-                break;
+
             case R.id.btn_mine_club:
                 intent=new Intent(getActivity(), MineClubActivity.class);
                 startActivity(intent);
