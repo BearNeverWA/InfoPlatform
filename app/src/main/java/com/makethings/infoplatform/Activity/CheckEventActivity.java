@@ -1,5 +1,6 @@
 package com.makethings.infoplatform.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,7 @@ public class CheckEventActivity extends AppCompatActivity {
     private List<Student> studentList = new ArrayList();
     private CheckEventRecycleAdapter adapter;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_events);
         ActionBar actionBar = getSupportActionBar();
@@ -43,6 +45,14 @@ public class CheckEventActivity extends AppCompatActivity {
             }
         });
         checkEventRecyclerView.setAdapter(adapter);
+        Button btnChangeEvent= (Button) findViewById(R.id.btn_modify_event);
+        btnChangeEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(CheckEventActivity.this,IssueEventsActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void initStudentData(){

@@ -36,6 +36,8 @@ public class MainActivity extends FragmentActivity {
         rbEvents = (RadioButton) findViewById(R.id.rb_event);
         rbClub = (RadioButton) findViewById(R.id.rb_club);
         rbPersonal = (RadioButton) findViewById(R.id.rb_personal);
+        rbEvents.setChecked(true);
+        rbEvents.setTextColor(Color.BLUE);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

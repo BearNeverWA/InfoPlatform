@@ -34,7 +34,7 @@ public class ClubDetailActivity extends AppCompatActivity {
     private ImageView ivClubPic;
     private ListView lvClubDetailInfo;
     private ListView lvClubEventsIssued;
-    private Button btEnrollClub;
+    private Button btEnrollClub, btnModify, btnMember, btnIssue, btnManage;
     private int[] type = {0, 1, 2, 3};
     private int clubEventsIssuedCount;
     private int[] clubEventsIssuedID;
@@ -50,7 +50,7 @@ public class ClubDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club_detail);
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar!=null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setTitle("社团详情");
         }
@@ -99,6 +99,40 @@ public class ClubDetailActivity extends AppCompatActivity {
                 intent.putExtra("eventsID", clubEventsIssuedID[i]);
                 intent.setClass(view.getContext(), EventsDetailActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnModify = (Button) findViewById(R.id.btn_modify_data);
+        btnModify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent();
+                i.setClass(ClubDetailActivity.this,ModifyClubDataActivity.class);
+                startActivity(i);
+            }
+        });
+        btnMember = (Button) findViewById(R.id.btn_mine_club_member);
+        btnMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(ClubDetailActivity.this,MineClubMembersActivity.class);
+                startActivity(i);
+            }
+        });
+        btnIssue = (Button) findViewById(R.id.btn_issue_event);
+        btnIssue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(ClubDetailActivity.this,IssueEventsActivity.class);
+                startActivity(i);
+            }
+        });
+        btnManage = (Button) findViewById(R.id.btn_check_event);
+        btnManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(ClubDetailActivity.this,CheckEventActivity.class);
+                startActivity(i);
             }
         });
     }
