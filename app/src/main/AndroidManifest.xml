@@ -8,16 +8,48 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:launchMode="singleTask">
+        <activity
+            android:name=".Activity.WelcomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MineClubActivity" />
-        <activity android:name=".ModifyClubDataActivity" />
-        <activity android:name=".MineClubMembersActivity" />
+        <activity
+            android:name=".Activity.CheckEventActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClubDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.EventsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.IssueEventsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MineClubActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MineClubMembersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MineEnrollActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MineFollowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ModifyClubDataActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
