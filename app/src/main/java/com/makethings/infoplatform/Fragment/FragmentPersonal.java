@@ -14,6 +14,7 @@ import com.makethings.infoplatform.Activity.MineClubActivity;
 import com.makethings.infoplatform.Activity.MineEnrollActivity;
 import com.makethings.infoplatform.Activity.MineFollowActivity;
 import com.makethings.infoplatform.Activity.ModifyClubDataActivity;
+import com.makethings.infoplatform.Activity.ModifyPersonalDataActivity;
 import com.makethings.infoplatform.R;
 
 /**
@@ -60,7 +61,7 @@ public class FragmentPersonal extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.btn_modify_data:
-                intent=new Intent(getActivity(), ModifyClubDataActivity.class);
+                intent=new Intent(getActivity(), ModifyPersonalDataActivity.class);
                 startActivity(intent);
                 break;
         }

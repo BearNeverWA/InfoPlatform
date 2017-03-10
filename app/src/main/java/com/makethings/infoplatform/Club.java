@@ -4,33 +4,27 @@ package com.makethings.infoplatform;
  * Created by Call Me Bear on 2017/3/9.
  */
 
-public class Event {
-    private String aId;
+public class Club {
+    private String cId;
     private String name;
-    private String summary;
+    private String star;
     private boolean isFollow;
 
-    public Event(String aId,String name, String summary, boolean isFollow) {
-        this.aId = aId;
+    public Club(String cId,String name, String star, boolean isFollow) {
+        this.cId=cId;
         this.name = name;
-        this.summary = summary;
+        this.star = star;
         this.isFollow = isFollow;
     }
 
-    public String getaId() {
-        return aId;
-    }
-
-    public void setaId(String aId) {
-        this.aId = aId;
-    }
+    public String getcId(){return cId;}
 
     public String getName() {
         return name;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getStar() {
+        return star;
     }
 
     public boolean getIsFollow() {
