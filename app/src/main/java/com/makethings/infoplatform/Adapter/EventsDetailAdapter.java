@@ -67,39 +67,55 @@ public class EventsDetailAdapter extends BaseAdapter {
         switch (type[position]) {
             case 0:
                 component = new Component();
-                convertView = layoutInflater.inflate(R.layout.list_events_time, null);
-                component.tv = (TextView) convertView.findViewById(R.id.tvEventsTime);
-                component.tv.setText((String) listEventsDetailInfo.get(position).get("eventsTime"));
+                convertView = layoutInflater.inflate(R.layout.list_events_start_time, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvEventsStartTime);
+                component.tv.setText((String) listEventsDetailInfo.get(position).get("aStartTime"));
                 break;
             case 1:
                 component = new Component();
-                convertView = layoutInflater.inflate(R.layout.list_events_place, null);
-                component.tv = (TextView) convertView.findViewById(R.id.tvEventsPlace);
-                component.tv.setText((String) listEventsDetailInfo.get(position).get("eventsPlace"));
+                convertView = layoutInflater.inflate(R.layout.list_events_stop_reg_time, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvEventsStopRegTime);
+                component.tv.setText((String) listEventsDetailInfo.get(position).get("aStopRegTime"));
                 break;
             case 2:
                 component = new Component();
-                convertView = layoutInflater.inflate(R.layout.list_events_max_capacity, null);
-                component.tv = (TextView) convertView.findViewById(R.id.tvEventsMaxCapacity);
-                component.tv.setText((String) listEventsDetailInfo.get(position).get("eventsMaxCapacity"));
+                convertView = layoutInflater.inflate(R.layout.list_events_end_time, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvEventsEndTime);
+                component.tv.setText((String) listEventsDetailInfo.get(position).get("aEndTime"));
                 break;
             case 3:
                 component = new Component();
-                convertView = layoutInflater.inflate(R.layout.list_events_enrolled_count, null);
-                component.tv = (TextView) convertView.findViewById(R.id.tvEventsEnrolledCount);
-                component.tv.setText((String) listEventsDetailInfo.get(position).get("eventsEnrolledCount"));
+                convertView = layoutInflater.inflate(R.layout.list_events_place, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvEventsPlace);
+                component.tv.setText((String) listEventsDetailInfo.get(position).get("aLocation"));
                 break;
             case 4:
                 component = new Component();
-                convertView = layoutInflater.inflate(R.layout.list_events_follow_count, null);
-                component.tv = (TextView) convertView.findViewById(R.id.tvEventsFollowCount);
-                component.tv.setText((String) listEventsDetailInfo.get(position).get("eventsFollowCount"));
+                convertView = layoutInflater.inflate(R.layout.list_events_max_capacity, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvEventsMaxCapacity);
+                component.tv.setText((String) listEventsDetailInfo.get(position).get("aMaxPeople"));
                 break;
             case 5:
                 component = new Component();
+                convertView = layoutInflater.inflate(R.layout.list_events_enrolled_count, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvEventsEnrolledCount);
+                component.tv.setText((String) listEventsDetailInfo.get(position).get("aSetPeople"));
+                break;
+            case 6:
+                component = new Component();
+                convertView = layoutInflater.inflate(R.layout.list_events_is_visible, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvEventsIsVisible);
+                String isVis=(String)listEventsDetailInfo.get(position).get("aVisible");
+                if(isVis.equals("1"))
+                    component.tv.setText("是");
+                else
+                    component.tv.setText("否");
+                break;
+            case 7:
+                component = new Component();
                 convertView = layoutInflater.inflate(R.layout.list_events_introduction, null);
                 component.multiTV = (MultiLineTextView) convertView.findViewById(R.id.tvEventsIntroduction);
-                component.multiTV.setText((String) listEventsDetailInfo.get(position).get("eventsIntroduction"));
+                component.multiTV.setText((String) listEventsDetailInfo.get(position).get("aIntroduction"));
                 break;
         }
 

@@ -1,4 +1,4 @@
-package com.makethings.infoplatform;
+package com.makethings.infoplatform.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.makethings.infoplatform.R;
 
 import java.util.List;
 import java.util.Map;
@@ -29,8 +31,8 @@ public class ClubEventsIssued extends BaseAdapter {
     }
 
     public final class Component {
-        public TextView tvEventsIssuedName;
-        public TextView tvEventsIssuedInfo;
+        public TextView tvActivityLocation;
+        public TextView tvActivityName;
     }
 
     @Override
@@ -53,11 +55,12 @@ public class ClubEventsIssued extends BaseAdapter {
         Component component;
         component = new Component();
         convertView = layoutInflater.inflate(R.layout.list_club_events_issued, null);
-        component.tvEventsIssuedName = (TextView) convertView.findViewById(R.id.tvClubEventsName);
-        component.tvEventsIssuedInfo = (TextView) convertView.findViewById(R.id.tvClubEventsInfo);
+        component.tvActivityLocation = (TextView) convertView.findViewById(R.id.tvActivityLocation);
+        component.tvActivityName = (TextView) convertView.findViewById(R.id.tvActivityName);
 
-        component.tvEventsIssuedName.setText((String) listClubEventsIssued.get(position).get("clubEventsIssuedName"));
-        component.tvEventsIssuedInfo.setText((String) listClubEventsIssued.get(position).get("clubEventsIssuedInfo"));
+
+        component.tvActivityName.setText((String) listClubEventsIssued.get(position).get("aName"));
+        component.tvActivityLocation.setText("@ "+String.valueOf(listClubEventsIssued.get(position).get("aLocation")));
 
         return convertView;
     }

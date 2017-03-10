@@ -69,25 +69,37 @@ public class ClubDetailAdapter extends BaseAdapter {
                 component = new Component();
                 convertView = layoutInflater.inflate(R.layout.list_club_category, null);
                 component.tv = (TextView) convertView.findViewById(R.id.tvClubCategory);
-                component.tv.setText((String) listClubDetailInfo.get(position).get("clubCategory"));
+                component.tv.setText((String) listClubDetailInfo.get(position).get("cType"));
                 break;
             case 1:
                 component = new Component();
                 convertView = layoutInflater.inflate(R.layout.list_club_member_count, null);
                 component.tv = (TextView) convertView.findViewById(R.id.tvClubMemberCount);
-                component.tv.setText((String) listClubDetailInfo.get(position).get("clubMemberCount"));
+                component.tv.setText((String) listClubDetailInfo.get(position).get("cJoinPeople"));
                 break;
             case 2:
                 component = new Component();
                 convertView = layoutInflater.inflate(R.layout.list_club_follow_count, null);
                 component.tv = (TextView) convertView.findViewById(R.id.tvClubFollowCount);
-                component.tv.setText((String) listClubDetailInfo.get(position).get("clubFollowCount"));
+                component.tv.setText((String) listClubDetailInfo.get(position).get("cCollectPeople"));
                 break;
             case 3:
                 component = new Component();
+                convertView = layoutInflater.inflate(R.layout.list_club_wechat_id, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvClubWechatId);
+                component.tv.setText((String) listClubDetailInfo.get(position).get("cWechatId"));
+                break;
+            case 4:
+                component = new Component();
+                convertView = layoutInflater.inflate(R.layout.list_club_wechat_name, null);
+                component.tv = (TextView) convertView.findViewById(R.id.tvClubWechatName);
+                component.tv.setText((String) listClubDetailInfo.get(position).get("cWechatName"));
+                break;
+            case 5:
+                component = new Component();
                 convertView = layoutInflater.inflate(R.layout.list_club_introduction, null);
                 component.multiTV = (MultiLineTextView) convertView.findViewById(R.id.tvClubIntroduction);
-                component.multiTV.setText((String) listClubDetailInfo.get(position).get("clubIntroduction"));
+                component.multiTV.setText((String) listClubDetailInfo.get(position).get("cIntroduction"));
                 break;
         }
 

@@ -11,8 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.makethings.infoplatform.Event;
+import com.makethings.infoplatform.Club;
 import com.makethings.infoplatform.R;
+
 
 import java.util.List;
 
@@ -20,11 +21,11 @@ import java.util.List;
  * Created by Call Me Bear on 2017/3/9.
  */
 
-public class EventAdapter extends ArrayAdapter<Event> {
+public class ClubAdapter extends ArrayAdapter<Club> {
 
     private int resourceId;
 
-    public EventAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Event> objects) {
+    public ClubAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Club> objects) {
         super(context, resource, objects);
         resourceId = resource;
     }
@@ -32,22 +33,22 @@ public class EventAdapter extends ArrayAdapter<Event> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        final Event event = getItem(position);
+        final Club club = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
-        TextView tvEventName = (TextView) view.findViewById(R.id.tv_event_name);
-        TextView tvEventSummary = (TextView) view.findViewById(R.id.tv_event_summary);
-        final Button btnFollow = (Button) view.findViewById(R.id.btn_follow);
-        tvEventName.setText(event.getName());
-        tvEventSummary.setText(event.getSummary());
-        if (event.getIsFollow())
+        TextView tvClubName = (TextView) view.findViewById(R.id.tv_club_name);
+        tvClubName.setText(club.getName());
+        TextView tvStar = (TextView) view.findViewById(R.id.tv_club_star);
+        tvStar.setText(club.getStar());
+        final Button btnFollow = (Button) view.findViewById(R.id.btn_club_follow);
+        if (club.getIsFollow())
             btnFollow.setText("♥");
         else
             btnFollow.setText("♡");
         btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.setIsFollow(!event.getIsFollow());
-                if (event.getIsFollow())
+                club.setIsFollow(!club.getIsFollow());
+                if (club.getIsFollow())
                     btnFollow.setText("♥");
                 else
                     btnFollow.setText("♡");
