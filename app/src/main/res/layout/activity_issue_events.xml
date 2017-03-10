@@ -15,18 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="活动基本信息"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="名称"/>
+                    android:text="活动名称"/>
 
                 <EditText
                     android:id="@+id/etEventsName"
@@ -40,9 +36,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="时间"/>
+                    android:text="活动开始时间"/>
                 <EditText
-                    android:id="@+id/etEventsDate"
+                    android:id="@+id/etEventsStartTime"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="datetime" />
@@ -53,7 +49,35 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="地点"/>
+                    android:text="活动结束时间"/>
+                <EditText
+                    android:id="@+id/etEventsEndTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="datetime" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="活动停止报名时间"/>
+                <EditText
+                    android:id="@+id/etEventsStopRegistTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="datetime" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="活动地点"/>
                 <EditText
                     android:id="@+id/etEventsPlace"
                     android:layout_width="match_parent"
@@ -66,7 +90,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="人数限制"/>
+                    android:text="活动最大人数"/>
                 <EditText
                     android:id="@+id/etEventsCapacity"
                     android:layout_width="match_parent"
@@ -80,7 +104,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="允许非社团成员加入"/>
+                    android:text="活动是否公开"/>
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -107,19 +131,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="活动简介"/>
+                    android:text="活动介绍"/>
                 <EditText
-                    android:id="@+id/etEventsBriefInfo"
+                    android:id="@+id/etEventsIntroduction"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text|textImeMultiLine" />
+                    android:inputType="textMultiLine" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="活动详细信息"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,20 +156,6 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="活动详细介绍"/>
-                <EditText
-                    android:id="@+id/etEventsIntroduction"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine" />
-            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
@@ -160,13 +165,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
-        <Button
-            android:id="@+id/btClearEventsInfoInput"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="清空信息"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
         <Button
             android:id="@+id/btConfirmIssue"
             android:layout_width="0dp"

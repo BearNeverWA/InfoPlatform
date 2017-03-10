@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="社团介绍"
+        android:text="社团介绍："
         android:textAppearance="@style/TextAppearance.AppCompat"/>
 
     <com.makethings.infoplatform.MultiLineTextView

@@ -15,7 +15,6 @@
             android:layout_height="wrap_content" />
         <TextView
             android:textColor="#ffd000"
-            android:text="☆☆☆☆☆"
             android:textSize="24sp"
             android:id="@+id/mine_enroll_item_stars"
             android:layout_weight="1"

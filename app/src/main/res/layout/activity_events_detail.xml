@@ -6,67 +6,58 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.makethings.infoplatform.Activity.EventsDetailActivity">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/tvEventsName"
+                android:text="活动名称"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="活动名称"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
-
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <ImageView
                 android:id="@+id/ivEventsPic"
+                android:src="@drawable/nopic"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
-
+                android:layout_height="200dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="基本信息"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-
             <ListView
                 android:id="@+id/lvEventsDetailInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="发起社团"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
             <ListView
                 android:id="@+id/lvEventsIssuedClub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+            <Button
+            android:id="@+id/btEnrollEvents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="报名活动"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            <Button
+                android:text="管理活动"
+                android:id="@+id/btCheckEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
     </ScrollView>
-
-    <Button
-        android:id="@+id/btEnrollEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="报名活动"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-    <Button
-        android:id="@+id/btn_manage_event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="管理这个活动" />
 
 </LinearLayout>

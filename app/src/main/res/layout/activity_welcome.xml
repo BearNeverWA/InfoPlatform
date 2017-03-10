@@ -4,7 +4,7 @@
     android:id="@+id/activity_welcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.makethings.infoplatform.Activity.WelcomeActivity">
+    tools:context="com.makethings.infoplatform.WelcomeActivity">
 
     <ImageView android:layout_width="fill_parent"
         android:layout_height="fill_parent"
