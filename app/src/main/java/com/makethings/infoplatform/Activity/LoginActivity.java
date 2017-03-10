@@ -1,11 +1,8 @@
 package com.makethings.infoplatform.Activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-//package com.bipbip.activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -16,62 +13,53 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.makethings.infoplatform.Publicdata;
 import com.makethings.infoplatform.R;
+
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import static com.makethings.infoplatform.Publicdata.uJoinCom;
+
 
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
     // 声明控件对象
     private EditText et_name, et_pass;
-    private Button mLoginButton, mLoginError, mRegister, ONLYTEST;
-    int selectIndex = 1;
-    int tempSelect = selectIndex;
+    private Button mLoginButton, mLoginError, mRegister;
     boolean isReLogin = false;
-    private int SERVER_FLAG = 0;
-    private RelativeLayout countryselect;
-    private TextView coutry_phone_sn, coutryName;//
-    // private String [] coutry_phone_sn_array,coutry_name_array;
-    public final static int LOGIN_ENABLE = 0x01;    //注册完毕了
-    public final static int LOGIN_UNABLE = 0x02;    //注册完毕了
-    public final static int PASS_ERROR = 0x03;      //注册完毕了
-    public final static int NAME_ERROR = 0x04;      //注册完毕了
-    final Handler UiMangerHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            // TODO Auto-generated method stub
-            switch (msg.what) {
-                case LOGIN_ENABLE:
-                    mLoginButton.setClickable(true);
-//    mLoginButton.setText(R.string.login);
-                    break;
-                case LOGIN_UNABLE:
-                    mLoginButton.setClickable(false);
-                    break;
-                case PASS_ERROR:
-
-                    break;
-                case NAME_ERROR:
-                    break;
-            }
-            super.handleMessage(msg);
-        }
-    };
     private Button bt_username_clear;
     private Button bt_pwd_clear;
     private Button bt_pwd_eye;
     private TextWatcher username_watcher;
     private TextWatcher password_watcher;
+    private String username, password;
+    String url = "http://community.stevenming.com.cn/u_0_jLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //不显示系统的标题栏
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         et_name = (EditText) findViewById(R.id.username);
         et_pass = (EditText) findViewById(R.id.password);
+        et_name.setText("1001");
+        et_pass.setText("123456");
 
         bt_username_clear = (Button) findViewById(R.id.bt_username_clear);
         bt_pwd_clear = (Button) findViewById(R.id.bt_pwd_clear);
@@ -132,9 +120,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         // TODO Auto-generated method stub
         switch (arg0.getId()) {
             case R.id.login:  //登陆
-                Intent login_intent = new Intent();
-                login_intent.setClass(LoginActivity.this, MainActivity.class);
-                startActivity(login_intent);
+                sendRequestWithOkhttp();
+                //Intent login_intent=new Intent();
+                //login_intent.setClass(LoginActivity.this,ModifyPersonalDataActivity.class);
+                //startActivity(login_intent);
+                //startActivity(WelcomeActivity.class);
                 break;
             case R.id.login_error: //无法登陆(忘记密码了吧)
                 //   Intent login_error_intent=new Intent();
@@ -191,4 +181,84 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         }
     }
 
+    private void sendRequestWithOkhttp() {
+        username = et_name.getText().toString();
+        password = et_pass.getText().toString();
+        OkHttpClient mOkHttpClient = new OkHttpClient();
+        FormEncodingBuilder encodingBuilder = new FormEncodingBuilder();
+        encodingBuilder.add("uId", username);
+        encodingBuilder.add("uPassword", password);
+        final Request request = new Request.Builder()
+                .url(url)
+                .post(encodingBuilder.build())
+                .build();
+        Call call = mOkHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                final String s = response.body().string();
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    if (jsonObject.getInt("success") == 1) {
+                        Publicdata.uId = jsonObject.getString("uId");
+                        Publicdata.userName = jsonObject.getString("userName");
+                        Publicdata.session = jsonObject.getString("session");
+                        Publicdata.userCommunity = jsonObject.getJSONObject("userCommunity");
+
+                        String uJoinComRaw = Publicdata.userCommunity.getString("uJoinCom");
+                        System.out.println("uJoinComRaw "+uJoinComRaw);
+                        uJoinComRaw.replace("\\[","");
+                        uJoinComRaw.replace("\\]","");
+                        StringTokenizer tk1=new StringTokenizer(uJoinComRaw,",");
+                        while(tk1.hasMoreTokens()){
+                            Publicdata.uJoinCom.add(tk1.nextToken());
+                        }
+
+                        String uJoinActRaw = Publicdata.userCommunity.getString("uJoinAct");
+                        uJoinActRaw.replace("\\[","");
+                        uJoinActRaw.replace("\\]","");
+                        StringTokenizer tk2=new StringTokenizer(uJoinActRaw,",");
+                        while(tk2.hasMoreTokens()){
+                            Publicdata.uJoinAct.add(tk2.nextToken());
+                        }
+
+
+                        String uCollectComRaw = Publicdata.userCommunity.getString("uCollectCom");
+                        uCollectComRaw.replace("\\[","");
+                        uCollectComRaw.replace("\\]","");
+                        StringTokenizer tk3=new StringTokenizer(uCollectComRaw,",");
+                        while(tk3.hasMoreTokens()){
+                            Publicdata.uCollectCom.add(tk3.nextToken());
+                        }
+                        String uCollectActRaw = Publicdata.userCommunity.getString("uCollectAct");
+                        uCollectActRaw.replace("\\[","");
+                        uCollectActRaw.replace("\\]","");
+                        StringTokenizer tk4=new StringTokenizer(uCollectActRaw,",");
+                        while(tk4.hasMoreTokens()){
+                            Publicdata.uCollectAct.add(tk4.nextToken());
+                        }
+
+
+                        Publicdata.uCommBoss = Publicdata.userCommunity.getString("uCommBoss");
+                        Publicdata.uCommAdmin = Publicdata.userCommunity.getString("uCommAdmin");
+                        Publicdata.communityName = jsonObject.getJSONObject("communityName");
+                        Publicdata.activityName = jsonObject.getJSONObject("activityName");
+                        Intent login_intent = new Intent();
+                        login_intent.setClass(LoginActivity.this, MainActivity.class);
+                        startActivity(login_intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "登陆失败，请输入正确的账号密码", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(s);
+            }
+        });
+    }
 }

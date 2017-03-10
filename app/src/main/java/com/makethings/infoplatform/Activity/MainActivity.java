@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.makethings.infoplatform.Adapter.EventAdapter;
 import com.makethings.infoplatform.Adapter.MainFragmentPageAdapter;
 import com.makethings.infoplatform.Fragment.FragmentClub;
 import com.makethings.infoplatform.Fragment.FragmentEvents;
@@ -32,6 +33,8 @@ public class MainActivity extends FragmentActivity {
 
     private void initView() {
         pager = (ViewPager) findViewById(R.id.view_pager);
+//        pager.setOffscreenPageLimit(1);
+
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         rbEvents = (RadioButton) findViewById(R.id.rb_event);
         rbClub = (RadioButton) findViewById(R.id.rb_club);
